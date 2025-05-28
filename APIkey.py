@@ -1,0 +1,4 @@
+
+TMDB_API_KEY = "bfa0b378b0978006de20aee88cc5906a"
+
+print(TMDB_API_KEY)
