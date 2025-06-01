@@ -2,7 +2,7 @@ import requests
 import tkinter as tk
 from tkinter import messagebox
 from APIkey import TMDB_API_KEY
-from id_search import movie_id
+
 def get_movie_keywords(movie_id):
     url = f"https://api.themoviedb.org/3/movie/{movie_id}/keywords"
     params = {
@@ -48,6 +48,3 @@ def show_keywords_selector(movie_id):
 
     window.mainloop()
     return selected_keywords
-
-if __name__ == "__main__":
-    show_keywords_selector(movie_id)
