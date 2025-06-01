@@ -26,13 +26,17 @@ def search_movie(title):
     else:
         print("취소되었습니다.")
         return None
+    
+def get_movie_id():
+    title = input("영화 제목을 입력하세요: ")
+    return search_movie(title)
+
 
 if __name__ == "__main__":
-    title = input("영화 제목을 입력하세요: ")
-    movie_id = search_movie(title)
+
+    movie_id = get_movie_id()
     
     if movie_id:
-        print(f"선택된 영화 ID: {movie_id}")
         print("선택된 영화 ID: %s" %movie_id)
     else:
         print("영화 ID를 가져오지 못했습니다.")
