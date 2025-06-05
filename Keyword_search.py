@@ -28,6 +28,7 @@ def show_keywords_selector(movie_id):
 
     selected_keywords = []
     keyword_vars = []
+    ai_check = [False]
 
     for kw in keywords:
         var = tk.BooleanVar()
@@ -35,16 +36,25 @@ def show_keywords_selector(movie_id):
         chk.pack(anchor='w')
         keyword_vars.append((kw, var))
 
+
+    use_ai = tk.BooleanVar()
+    ai_checkbox = tk.Checkbutton(window, text="Spotify AI 사용", variable=use_ai)
+    ai_checkbox.pack(pady=10)
+
+
     def submit_selection():
         selected_keywords.clear()
         selected_keywords.extend([kw for kw, var in keyword_vars if var.get()])
+        ai_check[0]=use_ai.get()
         window.destroy()
         print("\n 선택된 키워드:")
         for kw in selected_keywords:
             print(f"- {kw}")
 
+
+
     btn = tk.Button(window, text="선택 완료", command=submit_selection)
     btn.pack(pady=10)
 
     window.mainloop()
-    return selected_keywords
+    return selected_keywords,ai_check[0]
