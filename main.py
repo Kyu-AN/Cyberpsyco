@@ -29,8 +29,7 @@ def main():
     token = get_access_token()
 
     if ai == True:
-        X = generate_parameters(cleaned_keywords)
-        params = eval(X)
+        params = generate_parameters(cleaned_keywords)
 
         val = float(params["valence"])
         eng = float(params["energy"])
